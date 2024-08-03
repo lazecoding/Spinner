@@ -21,6 +21,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.ibeetl/beetl -->
+        <dependency>
+            <groupId>com.ibeetl</groupId>
+            <artifactId>beetl-spring-boot-starter-classic</artifactId>
+            <version>3.16.2.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
