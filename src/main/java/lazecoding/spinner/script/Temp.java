@@ -1,7 +1,6 @@
 package lazecoding.spinner.script;
 
 import org.beetl.core.GroupTemplate;
-import org.beetl.core.Script;
 import org.beetl.core.Template;
 import org.beetl.core.exception.BeetlException;
 import org.beetl.core.exception.ErrorInfo;
@@ -15,12 +14,9 @@ public class Temp {
 
         GroupTemplate groupTemplate = BeetlUtil.getGroupTemplate();
         //获取模板
-        String templateConetent = "222 \n${If(ToInt($root_key)>ToInt('6'),'777777777','666666666')} \n 1111 ";
-        Template template = groupTemplate.getTemplate(templateConetent);
-        template.binding("name", "Beetl");
-        template.binding("title", "Eye");
-        template.binding("$root_key", "7");
-        //渲染结果
+        String templateContent = "${If(ToInt(__root_key)>ToInt('6'),ToInt(__root_v1),ToInt(__root_v2))}";
+        Template template = groupTemplate.getTemplate(templateContent);
+
         BeetlException e = template.validate();
         if (e != null) {
             ErrorInfo error = new ErrorInfo(e);
@@ -28,6 +24,11 @@ public class Temp {
             String errorToken = error.getErrorTokenText();
             String type = error.getType();
         }
+        template.binding("__root_key", "7");
+        template.binding("__root_v1", "111111");
+        template.binding("__root_v2", "222222");
+
+        //渲染结果
         String str = template.render();
         System.out.println(str);
     }
