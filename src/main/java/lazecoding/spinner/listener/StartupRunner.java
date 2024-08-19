@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  * @author lazecoding
  */
 @Component
-public class KeeperStartupRunner implements ApplicationRunner {
+public class StartupRunner implements ApplicationRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(KeeperStartupRunner.class);
+    private static final Logger logger = LoggerFactory.getLogger(StartupRunner.class);
 
 
     @Override
